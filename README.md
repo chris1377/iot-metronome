@@ -89,5 +89,9 @@ If you exported the Node-RED flow as a `.json` file, you can easily restore it: 
    * Press **MODE** again. The system will calculate the average interval, apply the new BPM, and start blinking/beeping.
 4. **Mute:** Press the physical button connected to Pin 2, or toggle the Dashboard switch to silence the metronome (the visual green LED beat will continue uninterrupted).
 
+## 🎥 Video Demo
+
+[![Demo Metronomo IoT](https://img.youtube.com/vi/x_r3iNM9jIg/0.jpg)](https://youtube.com/shorts/x_r3iNM9jIg)
+
 ![FOTO PROGETTO](progetto.jpg)
 ![DASHBOARD](dashboard.jpg)
