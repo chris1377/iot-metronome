@@ -1,0 +1,977 @@
+[
+    {
+        "id": "1f4a9297010c6b15",
+        "type": "tab",
+        "label": "Dashboard 1",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9247b989c495212f",
+        "type": "tab",
+        "label": "Dashboard Metronomo",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4fca76812a1bcc8d",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "1abc54f5b10926a2",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "b7ed7727a523351f",
+        "type": "ui-page",
+        "name": "HOME",
+        "ui": "4fca76812a1bcc8d",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "1abc54f5b10926a2",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "48df55cf262fa9a8",
+        "type": "ui-group",
+        "name": "Dasboard",
+        "page": "b7ed7727a523351f",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "d98d87aed9343365",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ace85e918f7526dd",
+        "type": "ui-switch",
+        "z": "1f4a9297010c6b15",
+        "name": "REC",
+        "label": "REC",
+        "group": "48df55cf262fa9a8",
+        "order": 10,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "a33064af3a58af32"
+            ]
+        ]
+    },
+    {
+        "id": "1f5d2c24e9c3bcf5",
+        "type": "mqtt out",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "topic": "laboratorio/attuatori/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d98d87aed9343365",
+        "x": 980,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e9ef3581f5754d24",
+        "type": "switch",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "50",
+                "vt": "str"
+            },
+            {
+                "t": "gte",
+                "v": "50",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 470,
+        "y": 480,
+        "wires": [
+            [
+                "4e5f46d9f155da99"
+            ],
+            [
+                "be06fb827e7bfc09"
+            ]
+        ]
+    },
+    {
+        "id": "4e5f46d9f155da99",
+        "type": "change",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 460,
+        "wires": [
+            [
+                "1f5d2c24e9c3bcf5"
+            ]
+        ]
+    },
+    {
+        "id": "be06fb827e7bfc09",
+        "type": "change",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 520,
+        "wires": [
+            [
+                "1f5d2c24e9c3bcf5"
+            ]
+        ]
+    },
+    {
+        "id": "747091f15c945481",
+        "type": "mqtt in",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "topic": "laboratorio/sensori",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d98d87aed9343365",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 500,
+        "wires": [
+            [
+                "3e8fe2476e2a25ce",
+                "03ba6966631222f6"
+            ]
+        ]
+    },
+    {
+        "id": "3e8fe2476e2a25ce",
+        "type": "ui-text",
+        "z": "1f4a9297010c6b15",
+        "group": "48df55cf262fa9a8",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Valore sensore luce",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 570,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a33064af3a58af32",
+        "type": "change",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "stato_manuale",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 260,
+        "wires": [
+            [
+                "1f5d2c24e9c3bcf5"
+            ]
+        ]
+    },
+    {
+        "id": "03ba6966631222f6",
+        "type": "switch",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "property": "stato_manuale",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "ON",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "e9ef3581f5754d24"
+            ]
+        ]
+    },
+    {
+        "id": "aae2b549343e896c",
+        "type": "mqtt in",
+        "z": "1f4a9297010c6b15",
+        "name": "",
+        "topic": "laboratorio/esp/temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d98d87aed9343365",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 680,
+        "wires": [
+            [
+                "d4ce9be577a47280"
+            ]
+        ]
+    },
+    {
+        "id": "d4ce9be577a47280",
+        "type": "ui-text",
+        "z": "1f4a9297010c6b15",
+        "group": "48df55cf262fa9a8",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "ESP",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 470,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "622e13bb2086e011",
+        "type": "mqtt in",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/bpm",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d98d87aed9343365",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 407,
+        "y": 162,
+        "wires": [
+            [
+                "72e2bbceb92b5099"
+            ]
+        ]
+    },
+    {
+        "id": "72e2bbceb92b5099",
+        "type": "ui-text",
+        "z": "9247b989c495212f",
+        "group": "48df55cf262fa9a8",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "BPM",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "border rounded pa-2",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 590,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "09aead0edcec6892",
+        "type": "mqtt in",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/bpm/min",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d98d87aed9343365",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "479f0e62676df51e"
+            ]
+        ]
+    },
+    {
+        "id": "2e6086b3d8337be3",
+        "type": "mqtt in",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/bpm/max",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d98d87aed9343365",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "d0974cf6fc27af40"
+            ]
+        ]
+    },
+    {
+        "id": "d0974cf6fc27af40",
+        "type": "ui-text",
+        "z": "9247b989c495212f",
+        "group": "48df55cf262fa9a8",
+        "order": 7,
+        "width": "3",
+        "height": "2",
+        "name": "",
+        "label": "BPM Max",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "border rounded pa-2",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 620,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "479f0e62676df51e",
+        "type": "ui-text",
+        "z": "9247b989c495212f",
+        "group": "48df55cf262fa9a8",
+        "order": 6,
+        "width": "3",
+        "height": "2",
+        "name": "",
+        "label": "BPM Min",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "border rounded pa-2",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 600,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "98a073f38861ecbf",
+        "type": "mqtt out",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/bpm/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d98d87aed9343365",
+        "x": 840,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a8eb9f3304457004",
+        "type": "ui-form",
+        "z": "9247b989c495212f",
+        "name": "",
+        "group": "48df55cf262fa9a8",
+        "label": "",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "BPM",
+                "key": "bpm",
+                "type": "number",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "bpm": ""
+        },
+        "payload": "",
+        "submit": "Invia",
+        "cancel": "Cancella",
+        "resetOnSubmit": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "form-inline",
+        "passthru": false,
+        "dropdownOptions": [],
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "f6be2913b8a1a006"
+            ]
+        ]
+    },
+    {
+        "id": "f6be2913b8a1a006",
+        "type": "change",
+        "z": "9247b989c495212f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.bpm",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "98a073f38861ecbf"
+            ]
+        ]
+    },
+    {
+        "id": "6c1554d2071f5ff0",
+        "type": "mqtt in",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/stato/rec",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d98d87aed9343365",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "644d72702dc2861d",
+                "afe6a72e9a7676a0"
+            ]
+        ]
+    },
+    {
+        "id": "644d72702dc2861d",
+        "type": "ui-led",
+        "z": "9247b989c495212f",
+        "name": "",
+        "group": "48df55cf262fa9a8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "REC",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "ON",
+                "valueType": "str",
+                "color": "#ff0000"
+            },
+            {
+                "value": "OFF",
+                "valueType": "str",
+                "color": "#000000"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 650,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a84e1d0304d44aa5",
+        "type": "ui-switch",
+        "z": "9247b989c495212f",
+        "name": "",
+        "label": "Audio",
+        "group": "48df55cf262fa9a8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [
+                "2dca41cc01f6910b"
+            ]
+        ]
+    },
+    {
+        "id": "2dca41cc01f6910b",
+        "type": "mqtt out",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/suono/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d98d87aed9343365",
+        "x": 560,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "8d046ef99816d12f",
+        "type": "mqtt in",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/suono/stato",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d98d87aed9343365",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 660,
+        "wires": [
+            [
+                "a84e1d0304d44aa5"
+            ]
+        ]
+    },
+    {
+        "id": "0ac52af704660e49",
+        "type": "ui-button",
+        "z": "9247b989c495212f",
+        "group": "48df55cf262fa9a8",
+        "name": "Modalità REC/PLAY",
+        "label": "Modalità REC/PLAY",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "TOGGLE",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 320,
+        "y": 860,
+        "wires": [
+            [
+                "ca1d59b7c1791cb0"
+            ]
+        ]
+    },
+    {
+        "id": "ca1d59b7c1791cb0",
+        "type": "mqtt out",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/stato/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d98d87aed9343365",
+        "x": 580,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "092af13f90d53d62",
+        "type": "ui-button",
+        "z": "9247b989c495212f",
+        "group": "48df55cf262fa9a8",
+        "name": "Batti il tempo (TAP)",
+        "label": "Batti il tempo (TAP)",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 330,
+        "y": 940,
+        "wires": [
+            [
+                "cdcef84e89b46049"
+            ]
+        ]
+    },
+    {
+        "id": "cdcef84e89b46049",
+        "type": "mqtt out",
+        "z": "9247b989c495212f",
+        "name": "",
+        "topic": "metronomo/tap/set",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d98d87aed9343365",
+        "x": 570,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "afe6a72e9a7676a0",
+        "type": "switch",
+        "z": "9247b989c495212f",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 810,
+        "y": 680,
+        "wires": [
+            [
+                "ccd8e7de0767e8ba"
+            ],
+            [
+                "52babff7753062dc"
+            ]
+        ]
+    },
+    {
+        "id": "ccd8e7de0767e8ba",
+        "type": "change",
+        "z": "9247b989c495212f",
+        "name": "Abilita",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 760,
+        "wires": [
+            [
+                "092af13f90d53d62"
+            ]
+        ]
+    },
+    {
+        "id": "52babff7753062dc",
+        "type": "change",
+        "z": "9247b989c495212f",
+        "name": "Disabilita",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 840,
+        "wires": [
+            [
+                "092af13f90d53d62"
+            ]
+        ]
+    },
+    {
+        "id": "04cb2730445ef810",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.32.0",
+            "@flowfuse/node-red-dashboard-2-ui-led": "1.1.1"
+        }
+    }
+]
